@@ -1,24 +1,31 @@
 extends CharacterBody2D
 
 #Jump
-const SPEED = 300.0
-const JUMP_VELOCITY = -600.0
+const JUMP_VELOCITY = -600
+const SPEED = 300
 var can_Jump = true
 
 #Dash
-const DASH_VELOCITY = 1400
-var can_Dash = true
+const DASH_VELOCITY = 1200
 var is_Dashing = false
+var can_Dash = true
 var dash_Time = 0.15
 var dash_Timer = 0.0
 
-
+#PHYSICS
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	gravity_handler(delta)
+	jump_handler()
+	movement_and_dash_handler(delta)
+	move_and_slide()
+
+#Gravity
+func gravity_handler(delta: float) -> void:
 	if not is_on_floor() and not is_Dashing:
 		velocity += get_gravity() * delta
 
-	# Handle jump.
+#Handle Jump
+func jump_handler() -> void:
 	while Input.is_action_just_pressed("ui_accept") and can_Jump and is_on_floor():
 		can_Jump = false
 		velocity.y = JUMP_VELOCITY
@@ -27,21 +34,20 @@ func _physics_process(delta: float) -> void:
 		if can_Jump == false: #Ensures no jumping in air.
 			velocity.y = 0
 			can_Jump = true
-		
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	
+#Handle Dash
+func movement_and_dash_handler(delta: float) -> void:
 	var movement_horizontal_direction := Input.get_axis("ui_left","ui_right")
 	var movement_vertical_direction := Input.get_axis("ui_up","ui_down")
-	
-	if is_on_floor():
-		can_Dash = true
 	
 	if Input.is_action_just_pressed("dash") and can_Dash:
 		can_Dash = false
 		is_Dashing = true
 		dash_Timer = dash_Time
 	
+	if is_on_floor():
+		can_Dash = true
+		
 	if is_Dashing:
 		if movement_horizontal_direction:
 			velocity.x = movement_horizontal_direction * DASH_VELOCITY
@@ -57,10 +63,8 @@ func _physics_process(delta: float) -> void:
 		if dash_Timer <= 0:
 			velocity += get_gravity() * delta
 			is_Dashing = false
-	
+		
 	if movement_horizontal_direction and not is_Dashing:
 		velocity.x = movement_horizontal_direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-	move_and_slide()

@@ -18,7 +18,7 @@ tile_set = SubResource("TileSet_5jpri")
 format = 2
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=1902016173]
-position = Vector2(500, 400)
+position = Vector2(795, 740)
 
 [node name="Ground" type="CollisionShape2D" parent="Ground" unique_id=19385668]
 shape = SubResource("RectangleShape2D_5jpri")
@@ -29,7 +29,7 @@ polygon = PackedVector2Array(-1000, -10, -1000, 10, 1000, 10, 1000, -10)
 uv = PackedVector2Array(-10.666992, 86)
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1749844903]
-position = Vector2(500, 360)
+position = Vector2(500, 700)
 script = ExtResource("1_ctymt")
 
 [node name="Player_collision" type="CollisionShape2D" parent="Player" unique_id=1553803230]
