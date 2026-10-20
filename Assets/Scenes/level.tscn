@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://beb4w8yadi3tn"]
+
+[ext_resource type="Script" uid="uid://ddatbktiudp0s" path="res://Assets/Scenes/player.gd" id="1_ctymt"]
+
+[sub_resource type="TileSet" id="TileSet_5jpri"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5jpri"]
+size = Vector2(2000, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6r5c"]
+size = Vector2(20, 30)
+
+[node name="Level" type="Node2D" unique_id=1981715159]
+
+[node name="TileMap" type="TileMap" parent="." unique_id=478757216]
+position = Vector2(500, 400)
+tile_set = SubResource("TileSet_5jpri")
+format = 2
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1902016173]
+position = Vector2(500, 400)
+
+[node name="Ground" type="CollisionShape2D" parent="Ground" unique_id=19385668]
+shape = SubResource("RectangleShape2D_5jpri")
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground" unique_id=153973894]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-1000, -10, -1000, 10, 1000, 10, 1000, -10)
+uv = PackedVector2Array(-10.666992, 86)
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1749844903]
+position = Vector2(500, 360)
+script = ExtResource("1_ctymt")
+
+[node name="Player_collision" type="CollisionShape2D" parent="Player" unique_id=1553803230]
+shape = SubResource("RectangleShape2D_e6r5c")
+
+[node name="Polygon2D" type="Polygon2D" parent="Player" unique_id=1101443388]
+polygon = PackedVector2Array(10, -15, 10, 15, -10, 15, -10, -15)
