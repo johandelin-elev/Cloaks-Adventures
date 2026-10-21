@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://jl7r12kuflrj"
-path="res://.godot/imported/mininicular.png-0020f2283eb29ee02aaf4b8813b6a916.ctex"
+uid="uid://bn7ww7jp2xmku"
+path="res://.godot/imported/boss_death_sheet.png-14eaedb2f2bc748f1d7633bc85525f1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/mininicular.png"
-dest_files=["res://.godot/imported/mininicular.png-0020f2283eb29ee02aaf4b8813b6a916.ctex"]
+source_file="res://Assets/Sprites/Boss/boss_death_sheet.png"
+dest_files=["res://.godot/imported/boss_death_sheet.png-14eaedb2f2bc748f1d7633bc85525f1f.ctex"]
 
 [params]
 
