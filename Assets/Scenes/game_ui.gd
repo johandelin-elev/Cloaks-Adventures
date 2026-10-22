@@ -3,6 +3,8 @@ extends CanvasLayer
 
 @onready var death_screen = $DeathScreen
 @onready var pause_menu = $PauseMenu
+@onready var animated_sprite = $EndScreen/AnimatedSprite2D
+@onready var endscreen = $EndScreen
 
 var is_paused = false
 var is_dead = false
@@ -35,8 +37,12 @@ func _on_pause_menu_resume_pressed() -> void:
 
 
 func _on_pause_menu_quit_pressed() -> void:
+	endscreen.show()
+	animated_sprite.play("end_text")
+	
+	await animated_sprite.animation_finished
+	await get_tree().create_timer(3.0).timeout #3 Sec delay
 	get_tree().quit()
-
 
 func _on_retry_button_pressed() -> void:
 	pass # Replace with function body.

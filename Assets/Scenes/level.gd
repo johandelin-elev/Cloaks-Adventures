@@ -4,6 +4,8 @@ extends Node2D
 @onready var player_camera: Camera2D = $Player/Player/PlayerCamera
 
 @onready var exploration_music: AudioStreamPlayer2D = $Exploration_Music
+@onready var animated_sprite = $GameUI/EndScreen/AnimatedSprite2D
+@onready var endscreen = $GameUI/EndScreen
 
 var transition_started = false
 var normal_zoom = Vector2(1, 1)
@@ -12,6 +14,7 @@ var normal_zoom = Vector2(1, 1)
 func _ready() -> void:
 	get_tree().paused = true
 	$GameUI/TransitionFade.modulate.a = 0.0
+	$GameUI/EndScreen.hide()
 	
 func start_game() -> void:
 	if transition_started:
@@ -104,6 +107,11 @@ func _on_main_menu_quit_pressed() -> void:
 
 
 func _on_death_menu_button_pressed() -> void:
+	endscreen.show()
+	animated_sprite.play("end_text")
+	
+	await animated_sprite.animation_finished
+	await get_tree().create_timer(3.0).timeout #3 Sec delay
 	get_tree().quit()
 
 
