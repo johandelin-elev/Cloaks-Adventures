@@ -20,8 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://sdo6mdjfofej" path="res://Assets/UI/resume.png" id="16_thnky"]
 [ext_resource type="Texture2D" uid="uid://d3fkyxvofuv57" path="res://Assets/Sprites/Environment/SpriteBossRoom-0012.png" id="16_wqgb1"]
 [ext_resource type="Texture2D" uid="uid://qo6g6f2ql5sj" path="res://Assets/Sprites/Environment/mainmenu_bg/mainmenu_bg_02.png" id="17_8y550"]
+[ext_resource type="Script" uid="uid://d3lys0g20nmek" path="res://Assets/Scenes/tutorial_man.gd" id="17_ihdei"]
 [ext_resource type="Texture2D" uid="uid://b50ldo8ihaeoj" path="res://Assets/UI/resume_clicked.png" id="17_rtvlc"]
 [ext_resource type="Texture2D" uid="uid://c2u2oekyb3ajk" path="res://Assets/UI/quit.png" id="18_je1dm"]
+[ext_resource type="Texture2D" uid="uid://cad76872y614a" path="res://Assets/Sprites/Creature's/tutorial_man.png" id="18_jw8ha"]
 [ext_resource type="Texture2D" uid="uid://d14tkahcshf4y" path="res://Assets/Sprites/Environment/mainmenu_bg/mainmenu_bg_03.png" id="18_qpomi"]
 [ext_resource type="Texture2D" uid="uid://br12xigdnnnt8" path="res://Assets/UI/quit_clicked.png" id="19_c7ben"]
 [ext_resource type="Texture2D" uid="uid://humcry8n6qdk" path="res://Assets/Sprites/Environment/mainmenu_bg/mainmenu_bg_04.png" id="19_vo3ra"]
@@ -58,6 +60,9 @@
 [ext_resource type="Texture2D" uid="uid://b0rxk33kxq8t4" path="res://Assets/UI/quit_blue.png" id="50_jkuw0"]
 [ext_resource type="Script" uid="uid://dh104pvia1cys" path="res://Assets/Scenes/main_menu_start.gd" id="51_jkuw0"]
 [ext_resource type="Texture2D" uid="uid://d3kdgx8re2yp4" path="res://Assets/UI/quit_blue_clicked.png" id="51_lhv5l"]
+[ext_resource type="AudioStream" uid="uid://b1fpvwo8kfa3s" path="res://Assets/Sounds/Emmas awesome game music-[AudioTrimmer.com].mp3" id="59_lhv5l"]
+[ext_resource type="Texture2D" uid="uid://d1a7sp8ad8ftx" path="res://Assets/UI/start.png" id="59_td3j2"]
+[ext_resource type="Texture2D" uid="uid://bjn2pey8bp23w" path="res://Assets/UI/start_clicked.png" id="60_ihdei"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x4t65"]
 texture = ExtResource("1_w0eeu")
@@ -672,63 +677,63 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_86t5y")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_11cul")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ff8jh")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_86xvk")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_xkige")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tk48j")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_344e1")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_u2hq2")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_r83jd")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_s88v3")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0wy7t")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_hid3v")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_66uxe")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sfybr")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ipqpy")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_75qdb")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gqve2")
 }, {
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0lify")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"death",
-"speed": 5.0
+"speed": 17.0
 }, {
 "frames": [{
 "duration": 0.5,
@@ -743,16 +748,16 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_lhv5l")
 }, {
-"duration": 0.25,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_rmrr2")
 }, {
-"duration": 0.25,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_td3j2")
 }, {
-"duration": 0.25,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_ihdei")
 }, {
-"duration": 0.25,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_jw8ha")
 }, {
 "duration": 0.5,
@@ -770,48 +775,51 @@ animations = [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_55p5j")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"hit",
-"speed": 5.0
+"speed": 12.0
 }, {
 "frames": [{
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_nud46")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_tgclf")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_cnfxj")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_m5obn")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mes74")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_edi2l")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_1k420")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_j3xoh")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_mjuq3")
 }, {
-"duration": 0.75,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_w530h")
 }],
 "loop": 1,
 "name": &"idle",
-"speed": 5.0
+"speed": 9.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5jpri"]
 size = Vector2(250.00002, 320.00006)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxosl"]
+size = Vector2(639.9999, 542.50024)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5jpri"]
 
@@ -992,23 +1000,42 @@ script = ExtResource("9_nsji4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Boss" unique_id=2014998171]
 sprite_frames = SubResource("SpriteFrames_xxosl")
-animation = &"damaged"
+animation = &"hit"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss" unique_id=1561452759]
 scale = Vector2(0.7200019, 0.99999946)
 shape = SubResource("RectangleShape2D_5jpri")
 
 [node name="Area2D" type="Area2D" parent="Boss" unique_id=1869959111]
+position = Vector2(-1175.9999, -262)
+scale = Vector2(15.200009, 4.4000006)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss/Area2D" unique_id=1290503958]
-position = Vector2(15.000061, 0)
+unique_name_in_owner = true
+position = Vector2(15, 0)
 scale = Vector2(0.99999946, 0.99999946)
 shape = SubResource("RectangleShape2D_5jpri")
 
 [node name="AttackTimer" type="Timer" parent="Boss" unique_id=1773393319]
+one_shot = true
+
+[node name="tutorial_man" type="CharacterBody2D" parent="." unique_id=1083676616]
+position = Vector2(1409, 899.00006)
+scale = Vector2(0.2, 0.2)
+script = ExtResource("17_ihdei")
+
+[node name="Sprite2D" type="Sprite2D" parent="tutorial_man" unique_id=719441804]
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("18_jw8ha")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="tutorial_man" unique_id=698024068]
+position = Vector2(954.99854, 158.75)
+scale = Vector2(0.99999946, 0.99999946)
+shape = SubResource("RectangleShape2D_xxosl")
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=793689160]
 process_mode = 3
+visible = false
 script = ExtResource("14_fnxxm")
 
 [node name="TransitionFade" type="ColorRect" parent="GameUI" unique_id=1922818332]
@@ -1062,6 +1089,7 @@ position = Vector2(-29.499962, 52.374992)
 scale = Vector2(0.63593745, 0.7386718)
 sprite_frames = SubResource("SpriteFrames_yvqlx")
 animation = &"mainmenu_background"
+autoplay = "mainmenu_background"
 frame = 30
 frame_progress = 1.0
 
@@ -1151,38 +1179,93 @@ size_flags_vertical = 10
 texture_normal = ExtResource("18_je1dm")
 texture_pressed = ExtResource("19_c7ben")
 
-[node name="DeathScreen" type="Panel" parent="GameUI" unique_id=913766790]
-visible = false
+[node name="DeathScreen" type="Control" parent="GameUI" unique_id=977823619]
+z_index = 25
 custom_minimum_size = Vector2(1920, 1080)
 custom_maximum_size = Vector2(1920, 1080)
-offset_right = 1920.0
-offset_bottom = 1080.0
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GameUI/DeathScreen" unique_id=342135705]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.4399997
+anchor_bottom = 1.5199999
+offset_right = -844.7993
+offset_bottom = -561.59985
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.4399997, 2)
+offset_transform_enabled = true
+offset_transform_position = Vector2(-200, -100)
+color = Color(0, 0, 0, 0.6862745)
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="GameUI/DeathScreen" unique_id=1272102286]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -147.0
+offset_top = -307.0
+offset_right = 147.0
+offset_bottom = -219.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
 text = "You Died."
 
-[node name="Retry_Button" type="Button" parent="GameUI/DeathScreen" unique_id=876800446]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="VBoxContainer" type="VBoxContainer" parent="GameUI/DeathScreen" unique_id=1735694908]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -135.0
+offset_top = -57.0
+offset_right = 215.0
+offset_bottom = 414.79486
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.78, 0.78)
 
-[node name="DeathMenu_Button" type="Button" parent="GameUI/DeathScreen" unique_id=1808391525]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
+[node name="Retry_Button" type="TextureButton" parent="GameUI/DeathScreen/VBoxContainer" unique_id=1245542953]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("59_td3j2")
+texture_pressed = ExtResource("60_ihdei")
+
+[node name="DeathMenu_Button" type="TextureButton" parent="GameUI/DeathScreen/VBoxContainer" unique_id=698972906]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+texture_normal = ExtResource("18_je1dm")
+texture_pressed = ExtResource("19_c7ben")
 
 [node name="MenuCamera" type="Camera2D" parent="." unique_id=2135032754]
 position = Vector2(960, 920)
 
+[node name="Exploration_Music" type="AudioStreamPlayer2D" parent="." unique_id=620418972]
+stream = ExtResource("59_lhv5l")
+volume_db = 8.0
+max_distance = 20000.0
+
 [connection signal="animation_finished" from="Player/Player/AnimatedSprite2D" to="Player/Player" method="_on_animated_sprite_2d_animation_finished"]
-[connection signal="body_entered" from="Player/Player/AttackArea" to="Boss" method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="Boss/AnimatedSprite2D" to="Boss" method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="frame_changed" from="Boss/AnimatedSprite2D" to="Boss" method="_on_animated_sprite_2d_frame_changed"]
 [connection signal="body_entered" from="Boss/Area2D" to="Boss" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Boss/Area2D" to="Boss" method="_on_area_2d_body_exited"]
-[connection signal="timeout" from="Boss/AttackTimer" to="Boss" method="_on_attack_timer_timeout"]
 [connection signal="pressed" from="GameUI/MainMenu/VBoxContainer/MainMenu_Start" to="." method="_on_main_menu_start_pressed"]
 [connection signal="pressed" from="GameUI/MainMenu/VBoxContainer/MainMenu_Quit" to="." method="_on_main_menu_quit_pressed"]
 [connection signal="pressed" from="GameUI/PauseMenu/VBoxContainer/PauseMenu_Resume" to="GameUI" method="_on_pause_menu_resume_pressed"]
 [connection signal="pressed" from="GameUI/PauseMenu/VBoxContainer/PauseMenu_Quit" to="GameUI" method="_on_pause_menu_quit_pressed"]
+[connection signal="pressed" from="GameUI/DeathScreen/VBoxContainer/Retry_Button" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="GameUI/DeathScreen/VBoxContainer/DeathMenu_Button" to="." method="_on_death_menu_button_pressed"]

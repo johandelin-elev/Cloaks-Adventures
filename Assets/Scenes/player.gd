@@ -21,12 +21,10 @@ var can_Dash = true
 var dash_Time = 0.25
 var dash_Timer = 0.0
 
-#ON READY's
-#Animation
+var is_dead = false
+
 @onready var animated_sprite = $AnimatedSprite2D
-#Health bar
 @onready var health_bar = $health_overlay/AnimatedSprite2D
-#Attack
 @onready var attack_area = $AttackArea
 
 #PHYSICS
@@ -119,14 +117,18 @@ func update_health() -> void:
 	)
 
 func take_damage(amount: int) -> void:
+	if is_dead:
+		return
+	
 	health -= amount
 	health = max(health, 0)
 	
 	update_health()
-	print("Player health: ", health)
 	
 	if health <= 0:
-		print("Player defeated")
+		is_dead = true
+		$"../../GameUI".show_death_screen()
+		
 
 
 func _on_area_2d_body_exited(body: Node2D) -> void:

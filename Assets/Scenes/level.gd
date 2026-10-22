@@ -3,6 +3,8 @@ extends Node2D
 @onready var menu_camera: Camera2D = $MenuCamera
 @onready var player_camera: Camera2D = $Player/Player/PlayerCamera
 
+@onready var exploration_music: AudioStreamPlayer2D = $Exploration_Music
+
 var transition_started = false
 var normal_zoom = Vector2(1, 1)
 
@@ -82,8 +84,9 @@ func start_game() -> void:
 	tween.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	tween.tween_property(fade, "modulate:a", 0.0, 1.5)
 	await tween.finished
-
+	
 	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	exploration_music.play()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -98,3 +101,11 @@ func _on_main_menu_start_pressed() -> void:
 
 func _on_main_menu_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_death_menu_button_pressed() -> void:
+	get_tree().quit()
+
+
+func _on_retry_button_pressed() -> void:
+	get_tree().reload_current_scene()

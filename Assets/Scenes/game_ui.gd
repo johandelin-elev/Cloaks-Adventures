@@ -36,3 +36,11 @@ func _on_pause_menu_resume_pressed() -> void:
 
 func _on_pause_menu_quit_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_retry_button_pressed() -> void:
+	pass # Replace with function body.
+
+
+func _on_death_menu_button_pressed() -> void:
+	pass # Replace with function body.

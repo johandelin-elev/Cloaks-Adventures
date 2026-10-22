@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b1fpvwo8kfa3s"
+path="res://.godot/imported/Emmas awesome game music-[AudioTrimmer.com].mp3-25beb13694b5690e0498fa0fdcf93551.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Emmas awesome game music-[AudioTrimmer.com].mp3"
+dest_files=["res://.godot/imported/Emmas awesome game music-[AudioTrimmer.com].mp3-25beb13694b5690e0498fa0fdcf93551.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4
