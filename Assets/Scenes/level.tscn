@@ -1035,7 +1035,6 @@ shape = SubResource("RectangleShape2D_xxosl")
 
 [node name="GameUI" type="CanvasLayer" parent="." unique_id=793689160]
 process_mode = 3
-visible = false
 script = ExtResource("14_fnxxm")
 
 [node name="TransitionFade" type="ColorRect" parent="GameUI" unique_id=1922818332]
