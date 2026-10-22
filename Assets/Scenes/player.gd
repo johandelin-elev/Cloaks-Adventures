@@ -5,10 +5,11 @@ var health = 100
 var max_health = 100
 
 #Attack
+var is_Attacking = false
 var  attack_damage = 25
 
 #Jump
-const JUMP_VELOCITY = -1000
+const JUMP_VELOCITY = -1200
 const SPEED = 600
 var can_Jump = true
 
@@ -64,9 +65,18 @@ func movement_and_dash_handler(delta: float) -> void:
 	
 	if is_on_floor() and dash_Timer <= 0:
 		can_Dash = true
-		
+	
 	if is_Dashing:
+		dash_Timer -= delta
+		if dash_Timer <= 0:
+			velocity.x = 0
+			velocity += get_gravity() * delta
+			is_Dashing = false
+		
+		
+	if is_Dashing and not is_Attacking:
 		animated_sprite.play("dash")
+		
 		if movement_horizontal_direction:
 			velocity.x = movement_horizontal_direction * DASH_VELOCITY
 		elif movement_vertical_direction:
@@ -79,14 +89,8 @@ func movement_and_dash_handler(delta: float) -> void:
 				animated_sprite.rotation = deg_to_rad(-90)
 		else:
 			velocity += get_gravity() * (delta * 2)
-				
-		dash_Timer -= delta
-		if dash_Timer <= 0:
-			velocity.x = 0
-			velocity += get_gravity() * delta
-			is_Dashing = false
 	
-	if not is_Dashing:	
+	if not is_Dashing and not is_Attacking:	
 		animated_sprite.rotation = 0
 		if movement_horizontal_direction:
 			velocity.x = movement_horizontal_direction * SPEED
@@ -97,7 +101,8 @@ func movement_and_dash_handler(delta: float) -> void:
 			animated_sprite.play("idle")
 		
 func attack_handler() -> void:
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and not is_Attacking:
+		is_Attacking = true
 		animated_sprite.play("attack")
 		
 		for body in $AttackArea.get_overlapping_bodies():
@@ -105,7 +110,7 @@ func attack_handler() -> void:
 				continue
 			
 			if body.has_method("take_damage"):
-				body.take_damage(25)
+				body.take_damage(20)
 		
 func update_health() -> void:
 	var frame_count = health_bar.sprite_frames.get_frame_count("health_bar")
@@ -126,3 +131,8 @@ func take_damage(amount: int) -> void:
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	pass # Replace with function body.
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if animated_sprite.animation == "attack":
+		is_Attacking = false

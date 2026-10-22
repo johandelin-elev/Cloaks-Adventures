@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://4b6la40kjbhn"
-path="res://.godot/imported/start_blue_sheet.png-0367217484b7117e7fff79174944848e.ctex"
+uid="uid://dqmrj310dnd02"
+path="res://.godot/imported/mainmenu_bg_18.png-1918d68b14640e60e871bcb5288bea1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI/start_blue_sheet.png"
-dest_files=["res://.godot/imported/start_blue_sheet.png-0367217484b7117e7fff79174944848e.ctex"]
+source_file="res://Assets/Sprites/Environment/mainmenu_bg/mainmenu_bg_18.png"
+dest_files=["res://.godot/imported/mainmenu_bg_18.png-1918d68b14640e60e871bcb5288bea1e.ctex"]
 
 [params]
 
